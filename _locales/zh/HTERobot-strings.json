@@ -1,0 +1,13 @@
+{
+	"HTERobot.ExpandDigitalPinOutPut|block": "向拓展引脚|%index|数字写入 %Value",
+	"HTERobot.ExpandDigitalPinInPut|block": "数字读取拓展引脚|%index|",
+	"HTERobot.ExpandAnalogPinOutPut|block": "向拓展引脚|%index|模拟写入 %Value",
+	"HTERobot.ExpandAnalogPinInPut|block": "模拟读取拓展引脚|%index|",
+	"HTERobot.Servo|block": "舵机|%index|转动 %Degree|角度",
+	"HTERobot.ServoAccurate|block": "舵机|%index|精确转动 %DegreeAcurrate|角度",
+	"HTERobot.MotorRun|block": "电机|%index|速度 %speed",
+	"HTERobot.MotorRunDelay|block": "电机|%index|速度 %speed|并延时 %delay|s",
+	"HTERobot.MotorStop|block": "电机|%index|停止",
+	"HTERobot.i2cwriteReg|block": "向设备地址|%addr|寄存器|%reg|写入值 |%value",
+	"HTERobot.i2creadReg|block": "从设备地址|%addr|读寄存器 |%reg|的值"
+}

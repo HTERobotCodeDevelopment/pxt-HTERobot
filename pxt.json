@@ -1,0 +1,18 @@
+{
+    "name": "HTERobot",
+    "version": "0.1.91",
+    "description": "Extension for HTERobot",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "main.ts",
+        "_locales/zh/HTERobot-strings.json"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true
+}
