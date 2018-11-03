@@ -260,18 +260,38 @@ namespace HTERobot{
     //% blockGap=40
     //% Value.min=0 Value.max=1023
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function ExpandAnalogPinOutPut(index: ExpandAnalogPins, Value:number) :void{
+    export function ExpandAnalogPinOutPut(index: ExpandDigitalPins, Value:number) :void{
         if(index == 0)
         {
-            pins.analogWritePin(AnalogPin.P0,Value);
+            pins.analogWritePin(DigitalPin.P8,Value);
         }
         else if(index == 1)
         {
-            pins.analogWritePin(AnalogPin.P1,Value);
+            pins.analogWritePin(DigitalPin.P13,Value);
         }
         else if(index == 2)
         {
-            pins.analogWritePin(AnalogPin.P2,Value);
+            pins.analogWritePin(DigitalPin.P14,Value);
+        }
+        else if(index == 3)
+        {
+            pins.analogWritePin(DigitalPin.P15,Value);
+        }
+        else if(index == 4)
+        {
+            pins.analogWritePin(DigitalPin.P16,Value);
+        }
+        else if(index == 5)
+        {
+            pins.analogWritePin(DigitalPin.P0,Value);
+        }
+        else if(index == 6)
+        {
+            pins.analogWritePin(DigitalPin.P1,Value);
+        }
+        else if(index == 7)
+        {
+            pins.analogWritePin(DigitalPin.P2,Value);
         }
     } 
 
