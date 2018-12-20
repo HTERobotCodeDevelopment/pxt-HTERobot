@@ -431,4 +431,80 @@ namespace HTERobot{
         return val;
     }
 
+
+    /**
+     * TODO: describe your function here
+     * @param value describe value here, eg: 5
+     */
+    //% block
+    export function 中心点Y坐标(): number {
+        let a: number[] = []
+        let V = 0
+        let x = pins.createBuffer(5)
+        x.setNumber(NumberFormat.Int8LE, 0, 0xae)
+        x.setNumber(NumberFormat.Int8LE, 1, 0xc1)
+        x.setNumber(NumberFormat.Int8LE, 2, 0x20)
+        x.setNumber(NumberFormat.Int8LE, 3, 0x02)
+        x.setNumber(NumberFormat.Int8LE, 4, 0x01)
+        pins.i2cWriteBuffer(34, x)
+        let y = pins.i2cReadBuffer(34, 11)
+        for (let index = 0; index <= y.length - 1; index++) {
+            a[index] = y.getNumber(NumberFormat.UInt8LE, index)
+
+        }
+        if (a[3] == 14) {
+            return a[10]
+        }
+        return 0
+    }
+
+
+
+    /**
+  * TODO: describe your function here
+  * @param value describe value here, eg: 5
+  */
+    //% block
+    export function 中心点X坐标(): number {
+        let a: number[] = []
+        let V = 0
+        let x = pins.createBuffer(5)
+        x.setNumber(NumberFormat.Int8LE, 0, 0xae)
+        x.setNumber(NumberFormat.Int8LE, 1, 0xc1)
+        x.setNumber(NumberFormat.Int8LE, 2, 0x20)
+        x.setNumber(NumberFormat.Int8LE, 3, 0x02)
+        x.setNumber(NumberFormat.Int8LE, 4, 0x01)
+        pins.i2cWriteBuffer(34, x)
+        let y = pins.i2cReadBuffer(34, 11)
+        for (let index = 0; index <= y.length - 1; index++) {
+            a[index] = y.getNumber(NumberFormat.UInt8LE, index)
+        }
+        if (a[3] == 14) {
+            return a[8]
+        }
+        return 0
+
+    }
+
+
+
+    /**
+  * TODO: describe your function here
+  * @param value describe value here, eg: 5
+  */
+    //% block
+    export function 屏幕宽度(): number {
+        return 315
+    }
+
+
+    /**
+* TODO: describe your function here
+* @param value describe value here, eg: 5
+*/
+    //% block
+    export function 屏幕高度(): number {
+        return 207
+    }
+
 }
