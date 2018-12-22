@@ -1,8 +1,8 @@
 
 
-
+//% groups='["other", "pixy2", "引脚", "舵机", "电机", "模块", "i2c"]'
 //% color="#50A820" weight=10 icon="\uf0c2"
-namespace HTERobot{
+namespace HTERobot {
 
     const PCA9685_ADDRESS = 0x40
     const MODE1 = 0x00
@@ -19,7 +19,7 @@ namespace HTERobot{
     const ALL_LED_ON_H = 0xFB
     const ALL_LED_OFF_L = 0xFC
     const ALL_LED_OFF_H = 0xFD
-     
+
     const STP_CHA_L = 2047
     const STP_CHA_H = 4095
 
@@ -93,8 +93,8 @@ namespace HTERobot{
         i2cwrite(PCA9685_ADDRESS, MODE1, 0x00)
         setFreq(50);
         for (let idx = 0; idx < 16; idx++) {
-			setPwm(idx, 0 ,0);
-		}
+            setPwm(idx, 0, 0);
+        }
         initialized = true
     }
 
@@ -140,43 +140,36 @@ namespace HTERobot{
     //% blockId=ExpandDigitalPinInPut block="Digital Read ExpandPin |%index"
     //% weight=60
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function ExpandDigitalPinInPut(index: ExpandDigitalPins) :number{
-        if(index == 0)
-        {
+    //% group=引脚
+    export function ExpandDigitalPinInPut(index: ExpandDigitalPins): number {
+        if (index == 0) {
             return pins.digitalReadPin(DigitalPin.P8);
         }
-        else if(index == 1)
-        {
+        else if (index == 1) {
             return pins.digitalReadPin(DigitalPin.P13);
         }
-        else if(index == 2)
-        {
+        else if (index == 2) {
             return pins.digitalReadPin(DigitalPin.P14);
         }
-        else if(index == 3)
-        {
+        else if (index == 3) {
             return pins.digitalReadPin(DigitalPin.P15);
         }
-        else if(index == 4)
-        {
+        else if (index == 4) {
             return pins.digitalReadPin(DigitalPin.P16);
         }
-        else if(index == 5)
-        {
+        else if (index == 5) {
             return pins.digitalReadPin(DigitalPin.P0);
         }
-        else if(index == 6)
-        {
+        else if (index == 6) {
             return pins.digitalReadPin(DigitalPin.P1);
         }
-        else if(index == 7)
-        {
+        else if (index == 7) {
             return pins.digitalReadPin(DigitalPin.P2);
         }
-        else 
+        else
             return 0;
 
-    } 
+    }
 
     /**
      * 拓展数字引脚输出函数
@@ -188,43 +181,36 @@ namespace HTERobot{
     //% blockGap=40
     //% Value.min=0 Value.max=1
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function ExpandDigitalPinOutPut(index: ExpandDigitalPins, Value:number) :void{
-        if(index == 0)
-        {
-            pins.digitalWritePin(DigitalPin.P8,Value);
+    //% group=引脚
+    export function ExpandDigitalPinOutPut(index: ExpandDigitalPins, Value: number): void {
+        if (index == 0) {
+            pins.digitalWritePin(DigitalPin.P8, Value);
         }
-        else if(index == 1)
-        {
-            pins.digitalWritePin(DigitalPin.P13,Value);
+        else if (index == 1) {
+            pins.digitalWritePin(DigitalPin.P13, Value);
         }
-        else if(index == 2)
-        {
-            pins.digitalWritePin(DigitalPin.P14,Value);
+        else if (index == 2) {
+            pins.digitalWritePin(DigitalPin.P14, Value);
         }
-        else if(index == 3)
-        {
-            pins.digitalWritePin(DigitalPin.P15,Value);
+        else if (index == 3) {
+            pins.digitalWritePin(DigitalPin.P15, Value);
         }
-        else if(index == 4)
-        {
-            pins.digitalWritePin(DigitalPin.P16,Value);
+        else if (index == 4) {
+            pins.digitalWritePin(DigitalPin.P16, Value);
         }
-        else if(index == 5)
-        {
-            pins.digitalWritePin(DigitalPin.P0,Value);
+        else if (index == 5) {
+            pins.digitalWritePin(DigitalPin.P0, Value);
         }
-        else if(index == 6)
-        {
-            pins.digitalWritePin(DigitalPin.P1,Value);
+        else if (index == 6) {
+            pins.digitalWritePin(DigitalPin.P1, Value);
         }
-        else if(index == 7)
-        {
-            pins.digitalWritePin(DigitalPin.P2,Value);
+        else if (index == 7) {
+            pins.digitalWritePin(DigitalPin.P2, Value);
         }
 
-    } 
+    }
 
-    
+
     /**
      * 拓展模拟引脚读入函数
      * @param index eg:A0,A1,A2
@@ -232,22 +218,20 @@ namespace HTERobot{
     //% blockId=ExpandAnalogPinInPut block="Analog Read ExpandPin |%index"
     //% weight=58
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function ExpandAnalogPinInPut(index: ExpandAnalogPins) :number{
-        if(index == 0)
-        {
+    //% group=引脚
+    export function ExpandAnalogPinInPut(index: ExpandAnalogPins): number {
+        if (index == 0) {
             return pins.analogReadPin(AnalogPin.P0);
         }
-        else if(index == 1)
-        {
+        else if (index == 1) {
             return pins.analogReadPin(AnalogPin.P1);
         }
-        else if(index == 2)
-        {
+        else if (index == 2) {
             return pins.analogReadPin(AnalogPin.P2);
         }
         else
             return 0;
-    } 
+    }
 
 
     /**
@@ -260,43 +244,36 @@ namespace HTERobot{
     //% blockGap=40
     //% Value.min=0 Value.max=1023
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function ExpandAnalogPinOutPut(index: ExpandDigitalPins, Value:number) :void{
-        if(index == 0)
-        {
-            pins.analogWritePin(AnalogPin.P8,Value);
+    //% group=引脚
+    export function ExpandAnalogPinOutPut(index: ExpandDigitalPins, Value: number): void {
+        if (index == 0) {
+            pins.analogWritePin(AnalogPin.P8, Value);
         }
-        else if(index == 1)
-        {
-            pins.analogWritePin(AnalogPin.P13,Value);
+        else if (index == 1) {
+            pins.analogWritePin(AnalogPin.P13, Value);
         }
-        else if(index == 2)
-        {
-            pins.analogWritePin(AnalogPin.P14,Value);
+        else if (index == 2) {
+            pins.analogWritePin(AnalogPin.P14, Value);
         }
-        else if(index == 3)
-        {
-            pins.analogWritePin(AnalogPin.P15,Value);
+        else if (index == 3) {
+            pins.analogWritePin(AnalogPin.P15, Value);
         }
-        else if(index == 4)
-        {
-            pins.analogWritePin(AnalogPin.P16,Value);
+        else if (index == 4) {
+            pins.analogWritePin(AnalogPin.P16, Value);
         }
-        else if(index == 5)
-        {
-            pins.analogWritePin(AnalogPin.P0,Value);
+        else if (index == 5) {
+            pins.analogWritePin(AnalogPin.P0, Value);
         }
-        else if(index == 6)
-        {
-            pins.analogWritePin(AnalogPin.P1,Value);
+        else if (index == 6) {
+            pins.analogWritePin(AnalogPin.P1, Value);
         }
-        else if(index == 7)
-        {
-            pins.analogWritePin(AnalogPin.P2,Value);
+        else if (index == 7) {
+            pins.analogWritePin(AnalogPin.P2, Value);
         }
-    } 
+    }
 
 
-   
+
 
 
 
@@ -309,6 +286,7 @@ namespace HTERobot{
     //% weight=49
     //% Degree.min=0 Degree.max=180
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% group=舵机
     export function Servo(index: Servos, Degree: number): void {
         if (!initialized) {
             initPCA9685()
@@ -327,17 +305,18 @@ namespace HTERobot{
     //% weight=48
     //% blockGap=40
     //% DegreeAcurrate.min=0 DegreeAcurrate.max=1800
+    //% group=舵机
     export function ServoAccurate(index: Servos, DegreeAcurrate: number): void {
         if (!initialized) {
-            initPCA9685()  
+            initPCA9685()
         }
         // 50hz: 20,000 us
         let v_us = (DegreeAcurrate + 600) // 0.6 ~ 2.4
         let value = v_us * 4096 / 20000
         setPwm(index + 7, 0, value)
     }
-    
-  
+
+
 
     /**
      * 电机运行速度-255~255
@@ -345,6 +324,7 @@ namespace HTERobot{
     //% blockId=HTERobot_motor_run block="Motor|%index|speed %speed"
     //% weight=39
     //% speed.min=-255 speed.max=255
+    //% group=电机
     export function MotorRun(index: Motors, speed: number): void {
         if (!initialized) {
             initPCA9685()
@@ -363,7 +343,7 @@ namespace HTERobot{
         if (speed >= 0) {
             if (index == 1) {
                 setPwm(pp, 0, 0)
-                setPwm(pn, 0, speed) 
+                setPwm(pn, 0, speed)
             } else {
                 setPwm(pp, 0, speed)
                 setPwm(pn, 0, 0)
@@ -374,9 +354,9 @@ namespace HTERobot{
                 setPwm(pn, 0, 0)
             } else if (index == 2) {
                 setPwm(pp, 0, 0)
-                setPwm(pn, 0, -speed) 
+                setPwm(pn, 0, -speed)
             }
-            
+
         }
     }
 
@@ -389,6 +369,7 @@ namespace HTERobot{
     //% blockId=HTERobot_motor_rundelay block="Motor|%index|speed %speed|delay %delay|s"
     //% weight=38
     //% speed.min=-255 speed.max=255
+    //% group=电机
     export function MotorRunDelay(index: Motors, speed: number, delay: number): void {
         MotorRun(index, speed);
         basic.pause(delay * 1000);
@@ -401,16 +382,18 @@ namespace HTERobot{
     //% blockId=HTERobot_stop block="Motor Stop|%index|"
     //% weight=37
     //% blockGap=40
+    //% group=电机
     export function MotorStop(index: Motors): void {
         MotorRun(index, 0);
     }
 
-    
+
     /**
      * HTERobot_i2cwriteReg
      */
     //% blockId=HTERobot_i2cwriteReg block="DeviceAddr|%addr|Reg %reg|Value %value"
     //% weight=29
+    //% group=i2c
     export function i2cwriteReg(addr: number, reg: number, value: number) {
         let buf = pins.createBuffer(2)
         buf[0] = reg
@@ -425,7 +408,8 @@ namespace HTERobot{
     //% blockId=HTERobot_i2creadReg block="DeviceAddr|%addr|Reg %reg"
     //% weight=28
     //% blockGap=40
-    export function i2creadReg(addr: number, reg: number): number{
+    //% group=i2c
+    export function i2creadReg(addr: number, reg: number): number {
         pins.i2cWriteNumber(addr, reg, NumberFormat.UInt8BE);
         let val = pins.i2cReadNumber(addr, NumberFormat.UInt8BE);
         return val;
@@ -437,6 +421,7 @@ namespace HTERobot{
      * @param value describe value here, eg: 5
      */
     //% block
+    //% group=pixy2
     export function 中心点Y坐标(): number {
         let a: number[] = []
         let V = 0
@@ -465,6 +450,7 @@ namespace HTERobot{
   * @param value describe value here, eg: 5
   */
     //% block
+    //% group=pixy2
     export function 中心点X坐标(): number {
         let a: number[] = []
         let V = 0
@@ -493,18 +479,58 @@ namespace HTERobot{
   * @param value describe value here, eg: 5
   */
     //% block
+    //% group=pixy2
     export function 屏幕宽度(): number {
         return 315
     }
 
 
     /**
-* TODO: describe your function here
-* @param value describe value here, eg: 5
-*/
+    * TODO: describe your function here
+    * @param value describe value here, eg: 5
+    */
     //% block
+    //% group=pixy2
     export function 屏幕高度(): number {
         return 207
     }
+
+
+        /**
+     * 超声波数据返回
+     * @returns value 返回超声波
+     */
+    //% block
+    //% group=模块
+    export function 超声波数据返回(index: ExpandDigitalPins): number {
+        let c = 0
+        let b = 0
+        let d = 0
+        let a = 0
+        let e = 0
+        HTERobot.ExpandDigitalPinOutPut(index, 0)
+        control.waitMicros(2)
+        HTERobot.ExpandDigitalPinOutPut(index, 1)
+        control.waitMicros(5)
+        HTERobot.ExpandDigitalPinOutPut(index, 0)
+
+
+        while (HTERobot.ExpandDigitalPinInPut(index) != 1) {
+
+        }
+        a = input.runningTimeMicros()
+        while (HTERobot.ExpandDigitalPinInPut(index) != 0) {
+
+        }
+        d = input.runningTimeMicros()
+
+        b = d - a
+        c = b / 58
+        e = Math.round(c)
+        basic.pause(200)
+        return e
+    }
+
+    
 
 }
