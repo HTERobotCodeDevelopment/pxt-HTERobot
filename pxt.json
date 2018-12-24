@@ -1,6 +1,6 @@
 {
     "name": "HTERobot",
-    "version": "2.2.95",
+    "version": "2.3.95",
     "description": "Extension for HTERobot",
     "license": "MIT",
     "dependencies": {

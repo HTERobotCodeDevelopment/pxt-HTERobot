@@ -1,6 +1,6 @@
 
 
-//% groups='["other", "pixy2", "引脚", "舵机", "电机", "模块", "i2c"]'
+//% groups='["other", "引脚", "舵机",  "电机", "i2c", "模块", "pixy2"]'
 //% color="#50A820" weight=10 icon="\uf0c2"
 namespace HTERobot {
 
@@ -422,7 +422,7 @@ namespace HTERobot {
      */
     //% block
     //% group=pixy2
-    export function 中心点Y坐标(): number {
+    export function pixy中心点的Y坐标(): number {
         let a: number[] = []
         let V = 0
         let x = pins.createBuffer(5)
@@ -451,7 +451,7 @@ namespace HTERobot {
   */
     //% block
     //% group=pixy2
-    export function 中心点X坐标(): number {
+    export function pixy中心点的X坐标(): number {
         let a: number[] = []
         let V = 0
         let x = pins.createBuffer(5)
@@ -480,7 +480,7 @@ namespace HTERobot {
   */
     //% block
     //% group=pixy2
-    export function 屏幕宽度(): number {
+    export function pixy的屏幕宽度(): number {
         return 315
     }
 
@@ -491,7 +491,7 @@ namespace HTERobot {
     */
     //% block
     //% group=pixy2
-    export function 屏幕高度(): number {
+    export function pixy的屏幕高度(): number {
         return 207
     }
 
@@ -500,6 +500,7 @@ namespace HTERobot {
      * 超声波数据返回
      * @returns value 返回超声波
      */
+    //% blockId=HTERobot_GetUltrasonicdata block="GetUltrasonicdata|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
     //% group=模块
     export function 超声波数据返回(index: ExpandDigitalPins): number {
