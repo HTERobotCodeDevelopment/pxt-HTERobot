@@ -420,9 +420,10 @@ namespace HTERobot {
      * TODO: describe your function here
      * @param value describe value here, eg: 5
      */
+    //% blockId=GetCenterY block="Get CenterY|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
     //% group=pixy2
-    export function pixy中心点的Y坐标(): number {
+    export function GetCenterY(): number {
         let a: number[] = []
         let V = 0
         let x = pins.createBuffer(5)
@@ -449,9 +450,11 @@ namespace HTERobot {
   * TODO: describe your function here
   * @param value describe value here, eg: 5
   */
+    //% blockId=GetCenterX block="Get CenterX|%index|DegreeAcurrate %DegreeAcurrate"
+    
     //% block
     //% group=pixy2
-    export function pixy中心点的X坐标(): number {
+    export function GetCenterX(): number {
         let a: number[] = []
         let V = 0
         let x = pins.createBuffer(5)
@@ -478,9 +481,10 @@ namespace HTERobot {
   * TODO: describe your function here
   * @param value describe value here, eg: 5
   */
+    //% blockId=GetScreenWidth block="Get Screen Width|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
     //% group=pixy2
-    export function pixy的屏幕宽度(): number {
+    export function GetScreenWidth(): number {
         return 315
     }
 
@@ -489,9 +493,10 @@ namespace HTERobot {
     * TODO: describe your function here
     * @param value describe value here, eg: 5
     */
+   //% blockId=HTERobot_GetScreenHeight block="Get Screen Height|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
     //% group=pixy2
-    export function pixy的屏幕高度(): number {
+    export function GetScreenHeight(): number {
         return 207
     }
 
@@ -503,7 +508,7 @@ namespace HTERobot {
     //% blockId=HTERobot_GetUltrasonicdata block="GetUltrasonicdata|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
     //% group=模块
-    export function 超声波数据返回(index: ExpandDigitalPins): number {
+    export function GetUltrasonicdata(index: ExpandDigitalPins): number {
         let c = 0
         let b = 0
         let d = 0
