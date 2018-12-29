@@ -451,7 +451,7 @@ namespace HTERobot {
   * @param value describe value here, eg: 5
   */
     //% blockId=GetCenterX block="Get CenterX|%index|DegreeAcurrate %DegreeAcurrate"
-    
+
     //% block
     //% group=pixy2
     export function GetCenterX(): number {
@@ -475,7 +475,30 @@ namespace HTERobot {
 
     }
 
+    /**
+       * TODO: describe your function here
+       * @param value describe value here, eg: 5
+       */
+    //% blockId=GetPixyData block="Get Pixy Data|%index|DegreeAcurrate %DegreeAcurrate"
+    //% block
+    //% group=pixy2
+    export function GetPixyData(): number[] {
+        let a: number[] = []
+        let V = 0
+        let x = pins.createBuffer(5)
+        x.setNumber(NumberFormat.Int8LE, 0, 0xae)
+        x.setNumber(NumberFormat.Int8LE, 1, 0xc1)
+        x.setNumber(NumberFormat.Int8LE, 2, 0x20)
+        x.setNumber(NumberFormat.Int8LE, 3, 0x02)
+        x.setNumber(NumberFormat.Int8LE, 4, 0x01)
+        pins.i2cWriteBuffer(34, x)
+        let y = pins.i2cReadBuffer(34, 14)
+        for (let index = 0; index <= y.length - 1; index++) {
+            a[index] = y.getNumber(NumberFormat.UInt8LE, index)
 
+        }
+        return a
+    }
 
     /**
   * TODO: describe your function here
@@ -493,7 +516,7 @@ namespace HTERobot {
     * TODO: describe your function here
     * @param value describe value here, eg: 5
     */
-   //% blockId=HTERobot_GetScreenHeight block="Get Screen Height|%index|DegreeAcurrate %DegreeAcurrate"
+    //% blockId=HTERobot_GetScreenHeight block="Get Screen Height|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
     //% group=pixy2
     export function GetScreenHeight(): number {
@@ -501,10 +524,10 @@ namespace HTERobot {
     }
 
 
-        /**
-     * 超声波数据返回
-     * @returns value 返回超声波
-     */
+    /**
+ * 超声波数据返回
+ * @returns value 返回超声波
+ */
     //% blockId=HTERobot_GetUltrasonicdata block="GetUltrasonicdata|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
     //% group=模块
@@ -537,6 +560,7 @@ namespace HTERobot {
         return e
     }
 
-    
+
 
 }
+

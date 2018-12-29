@@ -12,6 +12,7 @@
 	"HTERobot.GetCenterX|block": "pixy中心点的X坐标|%index|",
 	"HTERobot.GetScreenWidth|block": "pixy的屏幕宽度|%index|",
 	"HTERobot.GetScreenHeight|block": "pixy的屏幕高度|%index|",
+	"HTERobot.GetPixyData|block": "pixy的数据包|%index|",
 	"HTERobot.GetUltrasonicdata|block": "超声波数据返回|%index|",
 	"HTERobot.i2cwriteReg|block": "向设备地址|%addr|寄存器|%reg|写入值 |%value",
 	"HTERobot.i2creadReg|block": "从设备地址|%addr|读寄存器 |%reg|的值"
