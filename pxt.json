@@ -1,6 +1,6 @@
 {
     "name": "HTERobot",
-    "version": "2.3.95",
+    "version": "2.4.0",
     "description": "Extension for DouBao:Bit",
     "license": "MIT",
     "dependencies": {
@@ -9,10 +9,8 @@
     "files": [
         "README.md",
         "main.ts",
-        "_locales/zh/HTERobot-strings.json",
-        "icon.png"
+        "_locales/zh/HTERobot-strings.json"
     ],
-    "icon":"./icon.png",
     "testFiles": [
         "test.ts"
     ],
