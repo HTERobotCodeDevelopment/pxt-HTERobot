@@ -446,9 +446,9 @@ namespace HTERobot {
 
 
     /**
-  * 物体中心XX
-  * @param value describe value here, eg: 5
-  */
+     * 物体中心XX
+     * @param value describe value here, eg: 5
+     */
     //% blockId=HTERobot_GetCenterXX block="Get CenterXX|%index|DegreeAcurrate %DegreeAcurrate"
 
     //% block
@@ -509,9 +509,9 @@ namespace HTERobot {
 
 
     /**
- * 物体中心X
- * @param value describe value here, eg: 5
- */
+     * 物体中心X
+     * @param value describe value here, eg: 5
+     */
     //% blockId=HTERobot_GetCenterX block="Get CenterX|%index|DegreeAcurrate %DegreeAcurrate"
 
     //% block
@@ -530,12 +530,12 @@ namespace HTERobot {
         }
     }
 
-    /**
- * 物体块的大小
- * @param value describe value here, eg: 5
- */
-    //% blockId=HTERobot_GetCenterS block="Get CenterS|%index|DegreeAcurrate %DegreeAcurrate"
 
+    /**
+     * 摄像头检测到的画面中，最大的被测物体的尺寸（单位：像素）
+     */
+
+    //% blockId=HTERobot_GetCenterS block="Get CenterS|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
     //% group=pixy2
     export function GetCenterS(): number {
@@ -555,9 +555,9 @@ namespace HTERobot {
 
 
     /**
-  * 物体中心Y
-  * @param value 物体中心Y值, eg: 5
-  */
+     * 摄像头检测到的画面中，最大的被测物体块的中心值Y（单位：像素）
+     * @param value 物体中心Y值, eg: 5
+     */
     //% blockId=HTERobot_GetCenterY block="Get CenterY|%index|DegreeAcurrate %DegreeAcurrate"
 
     //% block
@@ -587,7 +587,7 @@ namespace HTERobot {
     }
 
     /**
-    * 被测物体中心
+    * 摄像头检测到的画面中,最大的被测物体的中心点的X/Y坐标值（单位：像素）
     * @param value 物体中心XY值, eg: 5
     */
     //% blockId=HTERobot_GetObjectCenter block="Get Object Center|%index|DegreeAcurrate"
@@ -601,7 +601,7 @@ namespace HTERobot {
 
 
     /**
-    * 屏幕中心
+    * pixy摄像头的屏幕中心点的X/Y坐标值（单位：像素）
     * @param value 屏幕中心值, eg: 5
     */
     //% blockId=HTERobot_GetScreenCenter block="Get Screen Center|%index|DegreeAcurrate"
@@ -640,7 +640,7 @@ namespace HTERobot {
 
 
     /**
- * 超声波数据返回
+ * 超声波传感器可检测范围内距离最近的物体的距离值（单位：cm)
  * @returns value 返回超声波
  */
     //% blockId=HTERobot_GetUltrasonicdata block="GetUltrasonicdata|%index|DegreeAcurrate %DegreeAcurrate"
