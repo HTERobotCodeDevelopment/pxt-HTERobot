@@ -415,10 +415,10 @@ namespace HTERobot {
 
 
     /**
-     * TODO: describe your function here
+     * 物体中心YY
      * @param value describe value here, eg: 5
      */
-    //% blockId=GetCenterYY block="Get CenterYY|%index|DegreeAcurrate %DegreeAcurrate"
+    //% blockId=HTERobot_GetCenterYY block="Get CenterYY|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
     //% group=pixy2
     function GetCenterYY(): number {
@@ -446,10 +446,10 @@ namespace HTERobot {
 
 
     /**
-  * TODO: describe your function here
+  * 物体中心XX
   * @param value describe value here, eg: 5
   */
-    //% blockId=GetCenterXX block="Get CenterXX|%index|DegreeAcurrate %DegreeAcurrate"
+    //% blockId=HTERobot_GetCenterXX block="Get CenterXX|%index|DegreeAcurrate %DegreeAcurrate"
 
     //% block
     //% group=pixy2
@@ -478,10 +478,10 @@ namespace HTERobot {
 
 
     /**
-  * TODO: describe your function here
+  * 块的大小
   * @param value describe value here, eg: 5
   */
-    //% blockId=GetCenterSS block="Get CenterSS|%index|DegreeAcurrate %DegreeAcurrate"
+    //% blockId=HTERobot_GetCenterSS block="Get CenterSS|%index|DegreeAcurrate %DegreeAcurrate"
 
     //% block
     //% group=pixy2
@@ -509,10 +509,10 @@ namespace HTERobot {
 
 
     /**
- * TODO: describe your function here
+ * 物体中心X
  * @param value describe value here, eg: 5
  */
-    //% blockId=GetCenterX block="Get CenterX|%index|DegreeAcurrate %DegreeAcurrate"
+    //% blockId=HTERobot_GetCenterX block="Get CenterX|%index|DegreeAcurrate %DegreeAcurrate"
 
     //% block
     //% group=pixy2
@@ -531,10 +531,10 @@ namespace HTERobot {
     }
 
     /**
- * TODO: describe your function here
+ * 物体块的大小
  * @param value describe value here, eg: 5
  */
-    //% blockId=GetCenterS block="Get CenterS|%index|DegreeAcurrate %DegreeAcurrate"
+    //% blockId=HTERobot_GetCenterS block="Get CenterS|%index|DegreeAcurrate %DegreeAcurrate"
 
     //% block
     //% group=pixy2
@@ -555,10 +555,10 @@ namespace HTERobot {
 
 
     /**
-  * TODO: describe your function here
-  * @param value describe value here, eg: 5
+  * 物体中心Y
+  * @param value 物体中心Y值, eg: 5
   */
-    //% blockId=GetCenterY block="Get CenterY|%index|DegreeAcurrate %DegreeAcurrate"
+    //% blockId=HTERobot_GetCenterY block="Get CenterY|%index|DegreeAcurrate %DegreeAcurrate"
 
     //% block
     //% group=pixy2
@@ -587,10 +587,10 @@ namespace HTERobot {
     }
 
     /**
-    * TODO: describe your function here
-    * @param value describe value here, eg: 5
+    * 被测物体中心
+    * @param value 物体中心XY值, eg: 5
     */
-    //% blockId=GetObjectCenter block="Get Object Center|%index|DegreeAcurrate"
+    //% blockId=HTERobot_GetObjectCenter block="Get Object Center|%index|DegreeAcurrate"
 
     //% block
     //% group=pixy2
@@ -601,10 +601,10 @@ namespace HTERobot {
 
 
     /**
-    * TODO: describe your function here
-    * @param value describe value here, eg: 5
+    * 屏幕中心
+    * @param value 屏幕中心值, eg: 5
     */
-    //% blockId=GetScreenCenter block="Get Screen Center|%index|DegreeAcurrate"
+    //% blockId=HTERobot_GetScreenCenter block="Get Screen Center|%index|DegreeAcurrate"
 
     //% block
     //% group=pixy2
@@ -616,10 +616,10 @@ namespace HTERobot {
 
 
     /**
-  * TODO: describe your function here
-  * @param value describe value here, eg: 5
+  * 屏幕中心X
+  * @param value 屏幕中心X值, eg: 5
   */
-    //% blockId=GetScreenX block="Get Screen X|%index|DegreeAcurrate %DegreeAcurrate"
+    //% blockId=HTERobot_GetScreenX block="Get Screen X|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
     //% group=pixy2
     function GetScreenX(): number {
@@ -628,8 +628,8 @@ namespace HTERobot {
 
 
     /**
-    * TODO: describe your function here
-    * @param value describe value here, eg: 5
+    * 屏幕中心Y
+    * @param value 屏幕中心Y值, eg: 5
     */
     //% blockId=HTERobot_GetScreenY block="Get Screen Y|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
