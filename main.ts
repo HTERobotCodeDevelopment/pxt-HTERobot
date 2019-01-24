@@ -1,5 +1,3 @@
-
-
 //% groups='["other", "引脚", "舵机",  "电机", "i2c", "模块", "pixy2"]'
 //% color="#50A820" weight=10 icon="\uf0c2"
 namespace HTERobot {
@@ -420,10 +418,10 @@ namespace HTERobot {
      * TODO: describe your function here
      * @param value describe value here, eg: 5
      */
-    //% blockId=GetCenterY block="Get CenterY|%index|DegreeAcurrate %DegreeAcurrate"
+    //% blockId=GetCenterYY block="Get CenterYY|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
     //% group=pixy2
-    export function GetCenterY(): number {
+    function GetCenterYY(): number {
         let a: number[] = []
         let V = 0
         let x = pins.createBuffer(5)
@@ -438,10 +436,11 @@ namespace HTERobot {
             a[index] = y.getNumber(NumberFormat.UInt8LE, index)
 
         }
-        if (a[3] == 14) {
+        if (a[1] == 193 && a[0] == 175 && a[3] == 14) {
             return a[10]
         }
-        return 0
+
+        return -1
     }
 
 
@@ -450,65 +449,154 @@ namespace HTERobot {
   * TODO: describe your function here
   * @param value describe value here, eg: 5
   */
+    //% blockId=GetCenterXX block="Get CenterXX|%index|DegreeAcurrate %DegreeAcurrate"
+
+    //% block
+    //% group=pixy2
+    function GetCenterXX(): number {
+        let a: number[] = []
+        let V = 0
+        let x = pins.createBuffer(5)
+        x.setNumber(NumberFormat.Int8LE, 0, 0xae)
+        x.setNumber(NumberFormat.Int8LE, 1, 0xc1)
+        x.setNumber(NumberFormat.Int8LE, 2, 0x20)
+        x.setNumber(NumberFormat.Int8LE, 3, 0x02)
+        x.setNumber(NumberFormat.Int8LE, 4, 0x01)
+        pins.i2cWriteBuffer(34, x)
+        let y = pins.i2cReadBuffer(34, 11)
+        for (let index = 0; index <= y.length - 1; index++) {
+            a[index] = y.getNumber(NumberFormat.UInt8LE, index)
+
+        }
+        if (a[1] == 193 && a[0] == 175 && a[3] == 14) {
+            return a[8]
+        }
+
+        return -1
+    }
+
+
+
+    /**
+  * TODO: describe your function here
+  * @param value describe value here, eg: 5
+  */
+    //% blockId=GetCenterSS block="Get CenterSS|%index|DegreeAcurrate %DegreeAcurrate"
+
+    //% block
+    //% group=pixy2
+    function GetCenterSS(): number {
+        let a: number[] = []
+        let V = 0
+        let x = pins.createBuffer(5)
+        x.setNumber(NumberFormat.Int8LE, 0, 0xae)
+        x.setNumber(NumberFormat.Int8LE, 1, 0xc1)
+        x.setNumber(NumberFormat.Int8LE, 2, 0x20)
+        x.setNumber(NumberFormat.Int8LE, 3, 0x02)
+        x.setNumber(NumberFormat.Int8LE, 4, 0x01)
+        pins.i2cWriteBuffer(34, x)
+        let y = pins.i2cReadBuffer(34, 13)
+        for (let index = 0; index <= y.length - 1; index++) {
+            a[index] = y.getNumber(NumberFormat.UInt8LE, index)
+        }
+        if (a[1] == 193 && a[0] == 175) {
+            return a[12]
+        }
+
+        return -1
+    }
+
+
+
+    /**
+ * TODO: describe your function here
+ * @param value describe value here, eg: 5
+ */
     //% blockId=GetCenterX block="Get CenterX|%index|DegreeAcurrate %DegreeAcurrate"
 
     //% block
     //% group=pixy2
-    export function GetCenterX(): number {
-        let a: number[] = []
-        let V = 0
-        let x = pins.createBuffer(5)
-        x.setNumber(NumberFormat.Int8LE, 0, 0xae)
-        x.setNumber(NumberFormat.Int8LE, 1, 0xc1)
-        x.setNumber(NumberFormat.Int8LE, 2, 0x20)
-        x.setNumber(NumberFormat.Int8LE, 3, 0x02)
-        x.setNumber(NumberFormat.Int8LE, 4, 0x01)
-        pins.i2cWriteBuffer(34, x)
-        let y = pins.i2cReadBuffer(34, 11)
-        for (let index = 0; index <= y.length - 1; index++) {
-            a[index] = y.getNumber(NumberFormat.UInt8LE, index)
-        }
-        if (a[3] == 14) {
-            return a[8]
-        }
-        return 0
+    function GetCenterX(): number {
 
+        while (true) {
+            let num = GetCenterXX()
+            if (num == -1) {
+                num = GetCenterXX()
+                if (num != -1) {
+                    return num;
+                }
+
+            }
+        }
     }
 
     /**
-       * TODO: describe your function here
-       * @param value describe value here, eg: 5
-       */
-    //% blockId=GetPixyData block="Get Pixy Data|%index|DegreeAcurrate %DegreeAcurrate"
+ * TODO: describe your function here
+ * @param value describe value here, eg: 5
+ */
+    //% blockId=GetCenterS block="Get CenterS|%index|DegreeAcurrate %DegreeAcurrate"
+
     //% block
     //% group=pixy2
-    export function GetPixyData(): number[] {
-        let a: number[] = []
-        let V = 0
-        let x = pins.createBuffer(5)
-        x.setNumber(NumberFormat.Int8LE, 0, 0xae)
-        x.setNumber(NumberFormat.Int8LE, 1, 0xc1)
-        x.setNumber(NumberFormat.Int8LE, 2, 0x20)
-        x.setNumber(NumberFormat.Int8LE, 3, 0x02)
-        x.setNumber(NumberFormat.Int8LE, 4, 0x01)
-        pins.i2cWriteBuffer(34, x)
-        let y = pins.i2cReadBuffer(34, 14)
-        for (let index = 0; index <= y.length - 1; index++) {
-            a[index] = y.getNumber(NumberFormat.UInt8LE, index)
+    export function GetCenterS(): number {
 
+        while (true) {
+            let num = GetCenterSS()
+            if (num == -1) {
+                num = GetCenterSS()
+                if (num != -1) {
+                    return num;
+                }
+
+            }
         }
-        return a
     }
+
+
 
     /**
   * TODO: describe your function here
   * @param value describe value here, eg: 5
   */
-    //% blockId=GetScreenWidth block="Get Screen Width|%index|DegreeAcurrate %DegreeAcurrate"
+    //% blockId=GetCenterY block="Get CenterY|%index|DegreeAcurrate %DegreeAcurrate"
+
     //% block
     //% group=pixy2
-    export function GetScreenWidth(): number {
-        return 315
+    function GetCenterY(): number {
+
+        while (true) {
+            let num = GetCenterYY()
+            if (num == -1) {
+                num = GetCenterYY()
+                if (num != -1) {
+                    return num;
+                }
+
+            }
+        }
+    }
+    export enum 物体中心s {
+        X = 0,
+        Y = 1
+    }
+
+
+    export enum 屏幕中心s {
+        X = 0,
+        Y = 1
+    }
+
+    /**
+    * TODO: describe your function here
+    * @param value describe value here, eg: 5
+    */
+    //% blockId=GetObjectCenter block="Get Object Center|%index|DegreeAcurrate"
+
+    //% block
+    //% group=pixy2
+    export function GetObjectCenter(index: 物体中心s): number {
+        const arr = [GetCenterX, GetCenterY]
+        return arr[index]()
     }
 
 
@@ -516,11 +604,38 @@ namespace HTERobot {
     * TODO: describe your function here
     * @param value describe value here, eg: 5
     */
-    //% blockId=HTERobot_GetScreenHeight block="Get Screen Height|%index|DegreeAcurrate %DegreeAcurrate"
+    //% blockId=GetScreenCenter block="Get Screen Center|%index|DegreeAcurrate"
+
     //% block
     //% group=pixy2
-    export function GetScreenHeight(): number {
-        return 207
+    export function GetScreenCenter(index: 屏幕中心s): number {
+        const arr = [GetScreenX, GetScreenY]
+        return arr[index]()
+    }
+
+
+
+    /**
+  * TODO: describe your function here
+  * @param value describe value here, eg: 5
+  */
+    //% blockId=GetScreenX block="Get Screen X|%index|DegreeAcurrate %DegreeAcurrate"
+    //% block
+    //% group=pixy2
+    function GetScreenX(): number {
+        return 158
+    }
+
+
+    /**
+    * TODO: describe your function here
+    * @param value describe value here, eg: 5
+    */
+    //% blockId=HTERobot_GetScreenY block="Get Screen Y|%index|DegreeAcurrate %DegreeAcurrate"
+    //% block
+    //% group=pixy2
+    function GetScreenY(): number {
+        return 104
     }
 
 
@@ -562,5 +677,4 @@ namespace HTERobot {
 
 
 
-}
-
+}  
