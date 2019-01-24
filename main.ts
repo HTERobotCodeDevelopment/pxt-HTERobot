@@ -640,9 +640,8 @@ namespace HTERobot {
 
 
     /**
-     * 超声波传感器可检测范围内距离最近的物体的距离值（单位：cm)
-     * 
-     */
+    * 超声波传感器可检测范围内距离最近的物体的距离值（单位：cm)
+    */
     //% blockId=HTERobot_GetUltrasonicdata block="GetUltrasonicdata|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
     //% group=模块
