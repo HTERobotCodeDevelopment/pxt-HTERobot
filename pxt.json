@@ -11,6 +11,7 @@
         "main.ts",
         "_locales/zh/HTERobot-strings.json"
     ],
+    "icon": "icon.png",
     "testFiles": [
         "test.ts"
     ],
