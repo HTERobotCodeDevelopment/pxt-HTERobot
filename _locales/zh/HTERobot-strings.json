@@ -9,7 +9,7 @@
 	"HTERobot.MotorRunDelay|block": "电机|%index|速度 %speed|并延时 %delay|s",
 	"HTERobot.MotorStop|block": "电机|%index|停止",
 	"HTERobot.GetCenterS|block": "被测物体尺寸|%index|（0~208像素）",
-	"HTERobot.GetObjectCenter|block": "被测物体中心|%index|（MAXX:315像素 MAXY：207像素）",
+	"HTERobot.GetObjectCenter|block": "被测物体中心|%index|（maxX:315像素 maxY：207像素）",
 	"HTERobot.GetScreenCenter|block": "屏幕中心|%index|(像素)",
 	"HTERobot.GetUltrasonicdata|block": "超声波传感器|%index| 距离(cm)",
 	"HTERobot.i2cwriteReg|block": "向设备地址|%addr|寄存器|%reg|写入值 |%value",

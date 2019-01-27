@@ -1,4 +1,4 @@
-//% groups='["other", "引脚", "舵机",  "电机", "i2c", "模块", "pixy2"]'
+//% groups='["other", "引脚", "舵机",  "电机", "IIC", "模块", "pixy2"]'
 //% color="#50A820" weight=10 icon="\uf0c2"
 namespace HTERobot {
 
@@ -391,7 +391,7 @@ namespace HTERobot {
      */
     //% blockId=HTERobot_i2cwriteReg block="DeviceAddr|%addr|Reg %reg|Value %value"
     //% weight=29
-    //% group=i2c
+    //% group=IIC
     export function i2cwriteReg(addr: number, reg: number, value: number) {
         let buf = pins.createBuffer(2)
         buf[0] = reg
@@ -406,7 +406,7 @@ namespace HTERobot {
     //% blockId=HTERobot_i2creadReg block="DeviceAddr|%addr|Reg %reg"
     //% weight=28
     //% blockGap=40
-    //% group=i2c
+    //% group=IIC
     export function i2creadReg(addr: number, reg: number): number {
         pins.i2cWriteNumber(addr, reg, NumberFormat.UInt8BE);
         let val = pins.i2cReadNumber(addr, NumberFormat.UInt8BE);
