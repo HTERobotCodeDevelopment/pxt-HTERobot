@@ -545,6 +545,9 @@ namespace HTERobot {
             if (num == -1) {
                 num = GetCenterSS()
                 if (num != -1) {
+                    if (num == 128) {
+                        return 0
+                    }
                     return num;
                 }
 
