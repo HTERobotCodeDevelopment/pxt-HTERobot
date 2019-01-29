@@ -436,11 +436,14 @@ namespace HTERobot {
             a[index] = y.getNumber(NumberFormat.UInt8LE, index)
 
         }
-        if (a[1] == 193 && a[0] == 175 && a[3] == 14) {
-            return a[10]
+        if (a[1] == 193 && a[0] == 175) {
+            if (a[3] == 14) {
+                return a[10]
+            }
+            return -1
         }
 
-        return -1
+        return -2
     }
 
 
@@ -468,11 +471,14 @@ namespace HTERobot {
             a[index] = y.getNumber(NumberFormat.UInt8LE, index)
 
         }
-        if (a[1] == 193 && a[0] == 175 && a[3] == 14) {
-            return a[8]
+        if (a[1] == 193 && a[0] == 175 ) {
+            if (a[3] == 14){
+                return a[8]
+            }
+            return -1
         }
 
-        return -1
+        return -2
     }
 
 
@@ -500,10 +506,13 @@ namespace HTERobot {
             a[index] = y.getNumber(NumberFormat.UInt8LE, index)
         }
         if (a[1] == 193 && a[0] == 175) {
-            return a[12]
+            if (a[3] == 14) {
+                return a[12]
+            }
+            return -1
         }
 
-        return -1
+        return -2
     }
 
 
@@ -520,9 +529,9 @@ namespace HTERobot {
 
         while (true) {
             let num = GetCenterXX()
-            if (num == -1) {
+            if (num == -2) {
                 num = GetCenterXX()
-                if (num != -1) {
+                if (num != -2) {
                     return num;
                 }
 
@@ -532,7 +541,7 @@ namespace HTERobot {
 
 
     /**
-     * 摄像头检测到的画面中，最大的被测物体的尺寸（单位：像素）
+     * 摄像头检测到的画面中，最大的被测物体的尺寸。检测范围为0~208。当检测值为-1时，说明当前画面内无物体（单位：像素）
      */
 
     //% blockId=HTERobot_GetCenterS block="Get CenterS|%index|DegreeAcurrate %DegreeAcurrate"
@@ -542,14 +551,13 @@ namespace HTERobot {
 
         while (true) {
             let num = GetCenterSS()
-            if (num == -1) {
+            if (num == -2) {
                 num = GetCenterSS()
-                if (num != -1) {
-                    if (num == 128) {
-                        return 0
-                    }
+                if (num != -2) {
                     return num;
-                }
+                    }
+                   
+                
 
             }
         }
@@ -569,9 +577,9 @@ namespace HTERobot {
 
         while (true) {
             let num = GetCenterYY()
-            if (num == -1) {
+            if (num == -2) {
                 num = GetCenterYY()
-                if (num != -1) {
+                if (num != -2) {
                     return num;
                 }
 
@@ -590,7 +598,7 @@ namespace HTERobot {
     }
 
     /**
-    * 摄像头检测到的画面中,最大的被测物体的中心点的X/Y坐标值（单位：像素）
+    * 摄像头检测到的画面中,最大的被测物体的中心点的X/Y坐标值。检测范围为0~315/207。当检测值为-1时，说明当前画面内无物体（单位：像素）当
     * @param value 物体中心XY值, eg: 5
     */
     //% blockId=HTERobot_GetObjectCenter block="Get Object Center|%index|DegreeAcurrate"
@@ -679,4 +687,4 @@ namespace HTERobot {
 
 
 
-}  
+}   
