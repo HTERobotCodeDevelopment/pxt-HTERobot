@@ -693,12 +693,12 @@ namespace HTERobot {
     const stax = new staxida();
     
         /**
-    * 超声波传感器可检测范围内距离最近的物体的距离值（单位：cm)
+    * 在使用摄像头模块前需要对摄像头进行初始化
     */
     //% blockId=HTERobot_CameraInitialization block="CameraInitialization"
     //% block
     //% group=pixy2
-    export function CameraInitialization():void {
+    export function 摄像头初始化():void {
         while (true) {
             const arr = pinsArr();
             stax.setA(arr)
