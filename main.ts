@@ -695,7 +695,7 @@ namespace HTERobot {
         /**
     * 超声波传感器可检测范围内距离最近的物体的距离值（单位：cm)
     */
-    //% blockId=HTERobot_CameraInitialization block="CameraInitialization|%index|DegreeAcurrate %DegreeAcurrate"
+    //% blockId=HTERobot_CameraInitialization block="CameraInitialization"
     //% block
     //% group=pixy2
     export function CameraInitialization():void {

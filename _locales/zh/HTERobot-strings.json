@@ -11,7 +11,7 @@
 	"HTERobot.GetCenterS|block": "被测物体尺寸|%index|（0~208像素）",
 	"HTERobot.GetObjectCenter|block": "被测物体中心|%index|（max_x:315像素 max_y：207像素）",
 	"HTERobot.GetScreenCenter|block": "屏幕中心|%index|(像素)",
-	"HTERobot_CameraInitialization|block": "摄像头初始化|%index|",
+	"HTERobot_CameraInitialization|block": "摄像头初始化",
 	"HTERobot.GetUltrasonicdata|block": "超声波传感器|%index| 距离(cm)",
 	"HTERobot.i2cwriteReg|block": "向设备地址|%addr|寄存器|%reg|写入值 |%value",
 	"HTERobot.i2creadReg|block": "从设备地址|%addr|读寄存器 |%reg|的值"
