@@ -431,11 +431,13 @@ namespace HTERobot {
         x.setNumber(NumberFormat.Int8LE, 3, 0x02)
         x.setNumber(NumberFormat.Int8LE, 4, 0x01)
         pins.i2cWriteBuffer(34, x)
-        let y = pins.i2cReadBuffer(34, 11)
+        let y = pins.i2cReadBuffer(34, 13)
         for (let index = 0; index <= y.length - 1; index++) {
             a[index] = y.getNumber(NumberFormat.UInt8LE, index)
 
         }
+      
+            
         if (a[1] == 193 && a[0] == 175) {
             if (a[3] == 14) {
                 return a[10]
@@ -444,6 +446,7 @@ namespace HTERobot {
         }
 
         return -2
+        
     }
 
 
@@ -466,7 +469,7 @@ namespace HTERobot {
         x.setNumber(NumberFormat.Int8LE, 3, 0x02)
         x.setNumber(NumberFormat.Int8LE, 4, 0x01)
         pins.i2cWriteBuffer(34, x)
-        let y = pins.i2cReadBuffer(34, 11)
+        let y = pins.i2cReadBuffer(34, 13)
         for (let index = 0; index <= y.length - 1; index++) {
             a[index] = y.getNumber(NumberFormat.UInt8LE, index)
 
@@ -526,41 +529,25 @@ namespace HTERobot {
     //% block
     //% group=pixy2
     function GetCenterX(): number {
-
-        while (true) {
-            let num = GetCenterXX()
-            if (num == -2) {
-                num = GetCenterXX()
-                if (num != -2) {
-                    return num;
-                }
-
-            }
+        if (getA(3) == 14) {
+            return getA(8)
         }
+        return -1
     }
 
 
     /**
-     * 摄像头检测到的画面中，最大的被测物体的尺寸。检测范围为0~208。当检测值为-1时，说明当前画面内无物体（单位：像素）
+     * 摄像头检测到的画面中，最大的被测物体的尺寸（单位：像素）
      */
 
     //% blockId=HTERobot_GetCenterS block="Get CenterS|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
     //% group=pixy2
     export function GetCenterS(): number {
-
-        while (true) {
-            let num = GetCenterSS()
-            if (num == -2) {
-                num = GetCenterSS()
-                if (num != -2) {
-                    return num;
-                    }
-                   
-                
-
-            }
+        if (getA(3) == 14) {
+            return getA(12)
         }
+        return -1
     }
 
 
@@ -574,17 +561,10 @@ namespace HTERobot {
     //% block
     //% group=pixy2
     function GetCenterY(): number {
-
-        while (true) {
-            let num = GetCenterYY()
-            if (num == -2) {
-                num = GetCenterYY()
-                if (num != -2) {
-                    return num;
-                }
-
-            }
+        if (getA(3) == 14) {
+            return getA(10)
         }
+        return -1
     }
     export enum 物体中心s {
         X = 0,
@@ -598,7 +578,7 @@ namespace HTERobot {
     }
 
     /**
-    * 摄像头检测到的画面中,最大的被测物体的中心点的X/Y坐标值。检测范围为0~315/207。当检测值为-1时，说明当前画面内无物体（单位：像素）当
+    * 摄像头检测到的画面中,最大的被测物体的中心点的X/Y坐标值（单位：像素）
     * @param value 物体中心XY值, eg: 5
     */
     //% blockId=HTERobot_GetObjectCenter block="Get Object Center|%index|DegreeAcurrate"
@@ -685,6 +665,63 @@ namespace HTERobot {
         return e
     }
 
+    class staxida {
+        public A: number[];
+        getA() {
+            return this.A
+        }
+        setA(num: number[]){
+            this.A = num
+        }
+    }
+
+    function pinsArr(): number[] {
+        let a: number[] = []
+        let x = pins.createBuffer(5)
+        x.setNumber(NumberFormat.Int8LE, 0, 0xae)
+        x.setNumber(NumberFormat.Int8LE, 1, 0xc1)
+        x.setNumber(NumberFormat.Int8LE, 2, 0x20)
+        x.setNumber(NumberFormat.Int8LE, 3, 0x02)
+        x.setNumber(NumberFormat.Int8LE, 4, 0x01)
+        pins.i2cWriteBuffer(34, x)
+        let y = pins.i2cReadBuffer(34, 13)
+        for (let index = 0; index <= y.length - 1; index++) {
+            a[index] = y.getNumber(NumberFormat.UInt8LE, index)
+        }
+        return a;
+    }
+    const stax = new staxida();
+    
+        /**
+    * 超声波传感器可检测范围内距离最近的物体的距离值（单位：cm)
+    */
+    //% blockId=HTERobot_CameraInitialization block="CameraInitialization|%index|DegreeAcurrate %DegreeAcurrate"
+    //% block
+    //% group=pixy2
+    export function CameraInitialization():void {
+        while (true) {
+            const arr = pinsArr();
+            stax.setA(arr)
+            const a = stax.getA();
+            if (a.length > 12) {
+                if (a[1] == 193 && a[0] == 175) {
+                    return
+                } 
+            }else {
+                return
+            }
+        }
+    }
+
+        /**
+    * 超声波传感器可检测范围内距离最近的物体的距离值（单位：cm)
+    */
+    //% blockId=HTERobot_GetUltrasonicdatagetA block="GetUltrasonicdata|%index|DegreeAcurrate %DegreeAcurrate"
+    //% block
+    //% group=pixy2
+    function getA(num:number):number {
+        return stax.getA()[num];
+    }
 
 
 }   
