@@ -714,9 +714,9 @@ namespace HTERobot {
     }
 
         /**
-    * 超声波传感器可检测范围内距离最近的物体的距离值（单位：cm)
+    * 得到摄像头返回的数据包
     */
-    //% blockId=HTERobot_GetUltrasonicdatagetA block="GetUltrasonicdata|%index|DegreeAcurrate %DegreeAcurrate"
+    //% blockId=HTERobot_getA block="getA|%index|DegreeAcurrate %DegreeAcurrate"
     //% block
     //% group=pixy2
     function getA(num:number):number {
